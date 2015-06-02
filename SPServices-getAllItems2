@@ -1,0 +1,29 @@
+var ObtenerIndicadoresMacroprocesos = function(macroproceso)
+{
+	var nombreIndicadores = new Array();
+	var indicadores = null;
+	
+	$().SPServices({
+	    operation: "GetListItems",
+	    async: false ,
+	    listName: "Indicadores",
+	    CAMLViewFields:"<ViewFields><FieldRef Name='Macro_x0020_Proceso' /><FieldRef Name='Proceso' /><FieldRef Name='Title' /><FieldRef Name='Sub_x0020_Proceso' /><FieldRef Name='Vencimiento' /><FieldRef Name='UsuarioAsignado' /><FieldRef Name='Usuario_x0020_reemplazo' /> </ViewFields>",
+	    CAMLQuery:'<Query><Where><Eq><FieldRef Name="Macro_x0020_Proceso" /><Value Type="Text">'+macroproceso+'</Value></Eq></Where></Query>',
+	    completefunc: function (xData, Status) {
+	    
+	                               if(parseFloat($(xData.responseXML).SPFilterNode("rs:data").attr("ItemCount")) == 0)
+	                                               return null;
+	                
+	                               indicadores = $(xData.responseXML).SPFilterNode("z:row");         
+	    
+	    }
+	  });
+		
+	  $.each(indicadores,function(indice,indicador){
+	  
+	  	nombreIndicadores.push($(indicador).attr('ows_Title'));
+	  
+	  });
+
+	  return nombreIndicadores; 
+ }
