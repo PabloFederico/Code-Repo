@@ -1,0 +1,21 @@
+var obtenerItems = function(id)
+{
+
+var items  = null;
+
+		 $().SPServices({
+		    operation: "GetListItems",
+		    async: false ,
+		    listName: "Autocontroles",
+		     CAMLViewFields:"<ViewFields><FieldRef Name='Punzon' /></ViewFields>",
+		     CAMLQuery:"<Query><Where><Eq><FieldRef Name='IdCarga' /><Value Type='Text'>"+id+"</Value></Eq></Where></Query>",
+		    completefunc: function (xData, Status) {
+		    
+		     items = $(xData.responseXML).SPFilterNode("z:row");         
+		    
+		    }
+		  });
+
+ return items;
+
+}
