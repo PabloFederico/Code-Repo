@@ -1,0 +1,73 @@
+<html>
+
+<head>
+
+<style type="text/css">
+
+body{
+    margin:0px;
+    background:white;
+}
+#cabecera{
+   height:60px;
+    background:#585252;
+    width:96%;
+	position:fixed;
+	top:0px;
+	margin-left:2%;
+	margin-right:2%;
+	border-bottom:solid;
+	border-color:white;
+}
+#cuerpo{
+    width:96%;
+    background: #132F95;
+    height: 2000px;
+    margin: auto;
+}
+
+
+.nombre{
+
+color:white;
+font-size:40px;
+font-style:oblique;
+font-family:Comic Sans;
+font-variant:small-caps;
+margin-top:-30px;
+position:absolute;
+margin-left:5px;
+
+}
+
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div id="cabecera">
+
+<div class="nombre">
+<p>Pablo Federico</p>
+</div>
+
+</div>
+
+<div id="cuerpo">
+
+
+</div>
+
+
+
+</body>
+
+
+
+
+</html>
