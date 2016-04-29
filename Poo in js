@@ -1,0 +1,58 @@
+function MiClaseMejorada(arg1,arg2,arg3,arg4){
+        var self=this;
+        //Atributos públicos de la clase
+        this.atributoPublico1=arg1;
+        this.atributoPublico2=arg2;
+        //Atributos privados de la clase
+        var atributoPrivado1=arg3;
+        var atributoPrivado2=arg4;
+        //Getters y Setters
+        this.get=function(atributo){
+            switch(atributo)
+            {
+                case "atributoPublico1":
+                    return this.atributoPublico1;
+                case "atributoPublico2":
+                    return this.atributoPublico2;
+                case "atributoPrivado1":
+                    return atributoPrivado1;
+                case "atributoPrivado2":
+                    return atributoPrivado2;
+            }
+        };
+        this.set=function(atributo,valor){
+            switch(atributo)
+            {
+                case "atributoPublico1":
+                    this.atributoPublico1=valor;
+                    break;
+                case "atributoPublico2":
+                    this.atributoPublico2=valor;
+                    break;
+                case "atributoPrivado1":
+                    atributoPrivado1=valor;
+                    break;
+                case "atributoPrivado2":
+                    atributoPrivado2=valor;
+                    break;
+            }
+        };
+        //Métodos públicos de la clase
+        this.metodoPublico1=function(){
+            return metodoPrivado1()*2;
+        };
+        this.metodoPublico2=function(){
+            return metodoPrivado2()*3;
+        };
+        //Métodos privados de la clase
+        var metodoPrivado1=function(){
+            return self.atributoPublico1+atributoPrivado1;
+        };
+        function metodoPrivado2(){
+            return self.atributoPublico2+atributoPrivado2;
+        }
+    }
+
+
+//Para utilizar la clase, podríamos inicializarla así (idéntico a Java):
+var miClase = new MiClaseMejorada(1,2,3,4);
